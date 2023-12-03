@@ -18,7 +18,7 @@ jobs:
       with:
         fetch-depth: 0
     - name: Git Semantic Version
-      uses: Joffre159rz/practica8@v
+      uses: Joffre159rz/practica8@main
       with:
         major_pattern: "major:"
         minor_pattern: "feat:"
@@ -42,6 +42,6 @@ jobs:
       env:
         NEW_VERSION: ${{steps.version.outputs.version}}
       run:
-        docker build -t jofre159rz/docker-rest:$NEW_VERSION
-        docker build -t jofre159rz/docker-rest:latest
+        docker push -t jofre159rz/docker-rest:$NEW_VERSION
+        docker push -t jofre159rz/docker-rest:latest
       
