@@ -13,12 +13,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkput code
+    - name: Checkout code
       uses: actions/checkout@v3
       with:
         fetch-depth: 0
     - name: Git Semantic Version
-      uses: Joffre159rz/practica8
+      uses: Joffre159rz/practica8@v
       with:
         major_pattern: "major:"
         minor_pattern: "feat:"
