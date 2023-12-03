@@ -21,7 +21,7 @@ import { Documento, DocumentoSchema } from './documento/schema/documento.schema'
 @Module({
   imports: [
     // MongooseModule.forRoot('mongodb+srv://jjrz1350517171:1350517171@cluster0.ezxkxg9.mongodb.net/'),
-    MongooseModule.forRoot('mongodb://mongo:27017/cbm'),
+    MongooseModule.forRoot('mongodb+srv://jjrz1350517171:1350517171@cluster0.ezxkxg9.mongodb.net/'),
     MongooseModule.forFeature([{ name: Documento.name, schema: DocumentoSchema }]),
     AuthModule,
     UserModule,
