@@ -18,7 +18,7 @@ jobs:
       with:
         fetch-depth: 0
     - name: Git Semantic Version
-      uses: Joffre159rz/practica8@v1.0.0
+      uses: Joffre159rz/practica8
       with:
         major_pattern: "major:"
         minor_pattern: "feat:"
