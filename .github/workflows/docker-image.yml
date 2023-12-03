@@ -36,12 +36,13 @@ jobs:
       env:
         NEW_VERSION: ${{steps.version.outputs.version}}
       run: 
-        docker build -t jofre159rz/practica_8:$NEW_VERSION .
-        docker build -t jofre159rz/practica_8:latest .
+        docker build -t jofre159rz/practica_8:$NEW_VERSION
+        docker build -t jofre159rz/practica_8:latest
     - name: Push Docker Image
       env:
         NEW_VERSION: ${{steps.version.outputs.version}}
       run:
-        docker push -t jofre159rz/practica_8:$NEW_VERSION
-        docker push -t jofre159rz/practica_8:latest
+        docker push jofre159rz/practica_8:$NEW_VERSION
+        docker push jofre159rz/practica_8:latest
+
       
