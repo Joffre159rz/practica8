@@ -32,15 +32,19 @@ jobs:
       run: 
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
         
-    - name: Build Docker Image
+    - name: Build and Push Docker Images
       env:
-         NEW_VERSION: ${{ steps.version.outputs.version }}
+        NEW_VERSION: ${{ steps.version.outputs.version }}
       run: |
-         docker build -t jofre159rz/practica_8:$NEW_VERSION .
-         docker build -t jofre159rz/practica_8:latest .
-    - name: Push Docker Image
-      env:
-         NEW_VERSION: ${{ steps.version.outputs.version }}
-      run: |
-         docker push jofre159rz/practica_8:$NEW_VERSION
-         docker push jofre159rz/practica_8:latest  
+        docker build -t jofre159rz/trabajoautonomo-client:$NEW_VERSION path/to/client
+        docker push jofre159rz/trabajoautonomo-client:$NEW_VERSION
+        docker build -t jofre159rz/trabajoautonomo-microservicio:$NEW_VERSION path/to/microservicio
+        docker push jofre159rz/trabajoautonomo-microservicio:$NEW_VERSION
+        docker build -t jofre159rz/trabajoautonomo-server-gateway:$NEW_VERSION path/to/server-gateway
+        docker push jofre159rz/trabajoautonomo-server-gateway:$NEW_VERSION
+        docker tag jofre159rz/trabajoautonomo-client:$NEW_VERSION jofre159rz/trabajoautonomo-client:latest
+        docker tag jofre159rz/trabajoautonomo-microservicio:$NEW_VERSION jofre159rz/trabajoautonomo-microservicio:latest
+        docker tag jofre159rz/trabajoautonomo-server-gateway:$NEW_VERSION jofre159rz/trabajoautonomo-server-gateway:latest
+        docker push jofre159rz/trabajoautonomo-client:latest
+        docker push jofre159rz/trabajoautonomo-microservicio:latest
+        docker push jofre159rz/trabajoautonomo-server-gateway:latest
